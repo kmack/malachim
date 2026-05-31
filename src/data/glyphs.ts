@@ -9,27 +9,29 @@
 import type { GlyphShape } from '../types/glyph';
 
 export const GLYPHS: Record<string, GlyphShape> = {
-  // Aleph — cross-topped vertical with two ringed bars and ringed feet.
+  // Aleph — ladder: three top nodes, two wide side nodes, three foot nodes.
   aleph: {
     id: 'aleph',
     viewBox: 100,
     segments: [
-      { from: { x: 50, y: 20 }, to: { x: 50, y: 70 } },
-      { from: { x: 41, y: 27 }, to: { x: 59, y: 27 } },
-      { from: { x: 32, y: 40 }, to: { x: 68, y: 40 } },
-      { from: { x: 32, y: 53 }, to: { x: 68, y: 53 } },
-      { from: { x: 50, y: 70 }, to: { x: 43, y: 79 } },
-      { from: { x: 50, y: 70 }, to: { x: 57, y: 79 } },
+      { from: { x: 34, y: 18 }, to: { x: 34, y: 34 } },
+      { from: { x: 50, y: 18 }, to: { x: 50, y: 82 } },
+      { from: { x: 66, y: 18 }, to: { x: 66, y: 34 } },
+      { from: { x: 34, y: 34 }, to: { x: 66, y: 34 } },
+      { from: { x: 24, y: 50 }, to: { x: 76, y: 50 } },
+      { from: { x: 34, y: 66 }, to: { x: 66, y: 66 } },
+      { from: { x: 34, y: 66 }, to: { x: 34, y: 82 } },
+      { from: { x: 66, y: 66 }, to: { x: 66, y: 82 } },
     ],
     dots: [
-      { at: { x: 41, y: 27 } },
-      { at: { x: 59, y: 27 } },
-      { at: { x: 32, y: 40 } },
-      { at: { x: 68, y: 40 } },
-      { at: { x: 32, y: 53 } },
-      { at: { x: 68, y: 53 } },
-      { at: { x: 43, y: 80 } },
-      { at: { x: 57, y: 80 } },
+      { at: { x: 34, y: 18 } },
+      { at: { x: 50, y: 18 } },
+      { at: { x: 66, y: 18 } },
+      { at: { x: 24, y: 50 } },
+      { at: { x: 76, y: 50 } },
+      { at: { x: 34, y: 82 } },
+      { at: { x: 50, y: 82 } },
+      { at: { x: 66, y: 82 } },
     ],
   },
 
@@ -75,16 +77,20 @@ export const GLYPHS: Record<string, GlyphShape> = {
     ],
   },
 
-  // Heh — N-stroke with nodes at the two diagonal ends.
+  // Heh — И-stroke: rising diagonal with nodes top-left, top-right, bottom-left.
   heh: {
     id: 'heh',
     viewBox: 100,
     segments: [
       { from: { x: 36, y: 26 }, to: { x: 36, y: 74 } },
-      { from: { x: 36, y: 26 }, to: { x: 64, y: 74 } },
+      { from: { x: 36, y: 74 }, to: { x: 64, y: 26 } },
       { from: { x: 64, y: 26 }, to: { x: 64, y: 74 } },
     ],
-    dots: [{ at: { x: 36, y: 26 } }, { at: { x: 64, y: 74 } }],
+    dots: [
+      { at: { x: 36, y: 26 } },
+      { at: { x: 64, y: 26 } },
+      { at: { x: 36, y: 74 } },
+    ],
   },
 
   // Vav - fan descending from one top node to three base nodes.
@@ -134,23 +140,23 @@ export const GLYPHS: Record<string, GlyphShape> = {
     ],
   },
 
-  // Teth - paired crossings with three top nodes and three base nodes.
+  // Teth — peak on the left, crossed strokes on the right; six ringed ends.
   teth: {
     id: 'teth',
     viewBox: 100,
     segments: [
-      { from: { x: 28, y: 28 }, to: { x: 50, y: 72 } },
-      { from: { x: 50, y: 28 }, to: { x: 28, y: 72 } },
-      { from: { x: 50, y: 28 }, to: { x: 72, y: 72 } },
-      { from: { x: 72, y: 28 }, to: { x: 50, y: 72 } },
+      { from: { x: 12, y: 80 }, to: { x: 33, y: 16 } },
+      { from: { x: 33, y: 16 }, to: { x: 50, y: 84 } },
+      { from: { x: 50, y: 84 }, to: { x: 84, y: 34 } },
+      { from: { x: 60, y: 16 }, to: { x: 74, y: 82 } },
     ],
     dots: [
-      { at: { x: 28, y: 28 } },
-      { at: { x: 50, y: 28 } },
-      { at: { x: 72, y: 28 } },
-      { at: { x: 28, y: 72 } },
-      { at: { x: 50, y: 72 } },
-      { at: { x: 72, y: 72 } },
+      { at: { x: 12, y: 80 } },
+      { at: { x: 33, y: 16 } },
+      { at: { x: 50, y: 84 } },
+      { at: { x: 60, y: 16 } },
+      { at: { x: 84, y: 34 } },
+      { at: { x: 74, y: 82 } },
     ],
   },
 
@@ -185,7 +191,7 @@ export const GLYPHS: Record<string, GlyphShape> = {
     segments: [
       { from: { x: 34, y: 24 }, to: { x: 34, y: 76 } },
       { from: { x: 66, y: 24 }, to: { x: 66, y: 76 } },
-      { from: { x: 34, y: 50 }, to: { x: 66, y: 50 } },
+      { from: { x: 34, y: 43 }, to: { x: 66, y: 43 } },
     ],
     dots: [
       { at: { x: 34, y: 24 } },
@@ -201,12 +207,12 @@ export const GLYPHS: Record<string, GlyphShape> = {
     viewBox: 100,
     segments: [
       { from: { x: 68, y: 24 }, to: { x: 68, y: 76 } },
-      { from: { x: 30, y: 40 }, to: { x: 68, y: 58 } },
+      { from: { x: 30, y: 38 }, to: { x: 68, y: 50 } },
     ],
     dots: [
       { at: { x: 68, y: 24 } },
       { at: { x: 68, y: 76 } },
-      { at: { x: 30, y: 40 } },
+      { at: { x: 30, y: 38 } },
     ],
   },
 
@@ -229,25 +235,24 @@ export const GLYPHS: Record<string, GlyphShape> = {
     ],
   },
 
-  // Samekh (variant) - fanned candelabrum with a lower stem node.
+  // Samekh (variant) — menorah: central shaft, four curved branches, foot node.
   'samekh-var': {
     id: 'samekh-var',
     viewBox: 100,
-    paths: ['M24 56 Q50 72 76 56'],
-    segments: [
-      { from: { x: 30, y: 58 }, to: { x: 24, y: 34 } },
-      { from: { x: 40, y: 64 }, to: { x: 37, y: 30 } },
-      { from: { x: 50, y: 80 }, to: { x: 50, y: 26 } },
-      { from: { x: 60, y: 64 }, to: { x: 63, y: 30 } },
-      { from: { x: 70, y: 58 }, to: { x: 76, y: 34 } },
+    paths: [
+      'M50 84 L50 18',
+      'M50 54 Q34 46 32 20',
+      'M50 54 Q66 46 68 20',
+      'M50 60 Q18 50 16 28',
+      'M50 60 Q82 50 84 28',
     ],
     dots: [
-      { at: { x: 24, y: 34 } },
-      { at: { x: 37, y: 30 } },
-      { at: { x: 50, y: 26 } },
-      { at: { x: 63, y: 30 } },
-      { at: { x: 76, y: 34 } },
-      { at: { x: 50, y: 80 } },
+      { at: { x: 16, y: 28 } },
+      { at: { x: 32, y: 20 } },
+      { at: { x: 50, y: 16 } },
+      { at: { x: 68, y: 20 } },
+      { at: { x: 84, y: 28 } },
+      { at: { x: 50, y: 84 } },
     ],
   },
 
@@ -299,12 +304,21 @@ export const GLYPHS: Record<string, GlyphShape> = {
     dots: [{ at: { x: 50, y: 28 } }, { at: { x: 50, y: 72 } }],
   },
 
-  // Qoph — deep upward cup with two top nodes.
+  // Qoph — bowl with three ringed prongs and a central shaft.
   qoph: {
     id: 'qoph',
     viewBox: 100,
-    paths: ['M28 24 L28 50 Q28 78 50 78 Q72 78 72 50 L72 24'],
-    dots: [{ at: { x: 28, y: 24 } }, { at: { x: 72, y: 24 } }],
+    paths: ['M28 44 Q28 70 50 70 Q72 70 72 44'],
+    segments: [
+      { from: { x: 28, y: 18 }, to: { x: 28, y: 44 } },
+      { from: { x: 50, y: 16 }, to: { x: 50, y: 70 } },
+      { from: { x: 72, y: 18 }, to: { x: 72, y: 44 } },
+    ],
+    dots: [
+      { at: { x: 28, y: 18 } },
+      { at: { x: 50, y: 16 } },
+      { at: { x: 72, y: 18 } },
+    ],
   },
 
   // Resh - open V with two upper nodes.
