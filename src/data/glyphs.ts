@@ -9,191 +9,211 @@
 import type { GlyphShape } from '../types/glyph';
 
 export const GLYPHS: Record<string, GlyphShape> = {
-  // Aleph — double-barred vertical with ringed bar ends.
+  // Aleph — ladder: three top nodes, two wide side nodes, three foot nodes.
   aleph: {
     id: 'aleph',
     viewBox: 100,
     segments: [
-      { from: { x: 50, y: 18 }, to: { x: 50, y: 70 } },
-      { from: { x: 36, y: 36 }, to: { x: 64, y: 36 } },
-      { from: { x: 28, y: 58 }, to: { x: 72, y: 58 } },
+      { from: { x: 34, y: 18 }, to: { x: 34, y: 34 } },
+      { from: { x: 50, y: 18 }, to: { x: 50, y: 82 } },
+      { from: { x: 66, y: 18 }, to: { x: 66, y: 34 } },
+      { from: { x: 34, y: 34 }, to: { x: 66, y: 34 } },
+      { from: { x: 24, y: 50 }, to: { x: 76, y: 50 } },
+      { from: { x: 34, y: 66 }, to: { x: 66, y: 66 } },
+      { from: { x: 34, y: 66 }, to: { x: 34, y: 82 } },
+      { from: { x: 66, y: 66 }, to: { x: 66, y: 82 } },
     ],
     dots: [
-      { at: { x: 50, y: 16 } },
-      { at: { x: 36, y: 36 } },
-      { at: { x: 64, y: 36 } },
-      { at: { x: 28, y: 58 } },
-      { at: { x: 72, y: 58 } },
+      { at: { x: 34, y: 18 } },
+      { at: { x: 50, y: 18 } },
+      { at: { x: 66, y: 18 } },
+      { at: { x: 24, y: 50 } },
+      { at: { x: 76, y: 50 } },
+      { at: { x: 34, y: 82 } },
+      { at: { x: 50, y: 82 } },
+      { at: { x: 66, y: 82 } },
     ],
   },
 
-  // Beth — upward cup with three top nodes and an inner tongue.
+  // Beth - upward cup with three top nodes and an inner tongue.
   beth: {
     id: 'beth',
     viewBox: 100,
-    paths: ['M32 32 L32 56 Q32 74 50 74 Q68 74 68 56 L68 32'],
-    segments: [{ from: { x: 50, y: 74 }, to: { x: 50, y: 50 } }],
+    paths: ['M30 22 L30 50 Q30 78 50 78 Q70 78 70 50 L70 22'],
+    segments: [{ from: { x: 50, y: 22 }, to: { x: 50, y: 62 } }],
     dots: [
-      { at: { x: 32, y: 32 } },
-      { at: { x: 68, y: 32 } },
-      { at: { x: 50, y: 50 } },
+      { at: { x: 30, y: 22 } },
+      { at: { x: 50, y: 22 } },
+      { at: { x: 70, y: 22 } },
+      { at: { x: 50, y: 62 } },
     ],
   },
 
-  // Gimel — two upper nodes meeting and descending to a hooked tail.
+  // Gimel - twin descenders sweeping into a leftward tail.
   gimel: {
     id: 'gimel',
     viewBox: 100,
-    segments: [
-      { from: { x: 40, y: 32 }, to: { x: 54, y: 54 } },
-      { from: { x: 66, y: 30 }, to: { x: 54, y: 54 } },
+    paths: [
+      'M40 22 C38 44 42 64 50 76 C42 80 24 82 12 78',
+      'M68 22 C64 46 58 64 50 76',
     ],
-    paths: ['M54 54 L50 68 Q47 78 38 74'],
-    dots: [{ at: { x: 40, y: 32 } }, { at: { x: 66, y: 30 } }],
+    dots: [{ at: { x: 40, y: 22 } }, { at: { x: 68, y: 22 } }],
   },
 
-  // Daleth — table (Π) with ringed feet and a node at the top-right.
+  // Daleth - top rail, left leg, and central leg.
   daleth: {
     id: 'daleth',
     viewBox: 100,
     segments: [
-      { from: { x: 32, y: 36 }, to: { x: 72, y: 36 } },
-      { from: { x: 34, y: 36 }, to: { x: 34, y: 64 } },
-      { from: { x: 66, y: 36 }, to: { x: 66, y: 64 } },
+      { from: { x: 28, y: 28 }, to: { x: 72, y: 28 } },
+      { from: { x: 28, y: 28 }, to: { x: 28, y: 72 } },
+      { from: { x: 56, y: 28 }, to: { x: 56, y: 72 } },
     ],
     dots: [
-      { at: { x: 72, y: 36 } },
-      { at: { x: 34, y: 66 } },
-      { at: { x: 66, y: 66 } },
+      { at: { x: 28, y: 28 } },
+      { at: { x: 72, y: 28 } },
+      { at: { x: 28, y: 72 } },
+      { at: { x: 56, y: 72 } },
     ],
   },
 
-  // Heh — N-stroke with diagonal nodes.
+  // Heh - left post, falling diagonal, and right post; nodes TL, TR, BL.
   heh: {
     id: 'heh',
     viewBox: 100,
     segments: [
-      { from: { x: 36, y: 30 }, to: { x: 36, y: 70 } },
-      { from: { x: 36, y: 30 }, to: { x: 64, y: 70 } },
-      { from: { x: 64, y: 30 }, to: { x: 64, y: 70 } },
+      { from: { x: 36, y: 26 }, to: { x: 36, y: 74 } },
+      { from: { x: 36, y: 26 }, to: { x: 64, y: 74 } },
+      { from: { x: 64, y: 26 }, to: { x: 64, y: 74 } },
     ],
-    dots: [{ at: { x: 36, y: 28 } }, { at: { x: 64, y: 72 } }],
+    dots: [
+      { at: { x: 36, y: 26 } },
+      { at: { x: 64, y: 26 } },
+      { at: { x: 36, y: 74 } },
+    ],
   },
 
-  // Vav — tent with a central pole and three base nodes.
+  // Vav - fan descending from one top node to three base nodes.
   vav: {
     id: 'vav',
     viewBox: 100,
     segments: [
-      { from: { x: 32, y: 70 }, to: { x: 50, y: 30 } },
-      { from: { x: 68, y: 70 }, to: { x: 50, y: 30 } },
-      { from: { x: 50, y: 70 }, to: { x: 50, y: 42 } },
+      { from: { x: 50, y: 22 }, to: { x: 28, y: 76 } },
+      { from: { x: 50, y: 22 }, to: { x: 50, y: 76 } },
+      { from: { x: 50, y: 22 }, to: { x: 72, y: 76 } },
     ],
     dots: [
-      { at: { x: 32, y: 72 } },
-      { at: { x: 50, y: 72 } },
-      { at: { x: 68, y: 72 } },
+      { at: { x: 50, y: 22 } },
+      { at: { x: 28, y: 76 } },
+      { at: { x: 50, y: 76 } },
+      { at: { x: 72, y: 76 } },
     ],
   },
 
-  // Zayin — downward trident: three top nodes converging to a point.
+  // Zayin - three top nodes converging to a lower node.
   zayin: {
     id: 'zayin',
     viewBox: 100,
     segments: [
-      { from: { x: 34, y: 32 }, to: { x: 50, y: 68 } },
-      { from: { x: 50, y: 30 }, to: { x: 50, y: 68 } },
-      { from: { x: 66, y: 32 }, to: { x: 50, y: 68 } },
+      { from: { x: 30, y: 26 }, to: { x: 50, y: 76 } },
+      { from: { x: 50, y: 26 }, to: { x: 50, y: 76 } },
+      { from: { x: 70, y: 26 }, to: { x: 50, y: 76 } },
     ],
     dots: [
-      { at: { x: 34, y: 32 } },
-      { at: { x: 50, y: 28 } },
-      { at: { x: 66, y: 32 } },
-      { at: { x: 50, y: 70 } },
+      { at: { x: 30, y: 26 } },
+      { at: { x: 50, y: 26 } },
+      { at: { x: 70, y: 26 } },
+      { at: { x: 50, y: 76 } },
     ],
   },
 
-  // Cheth — a 2x1 box (rectangle with a central divider).
+  // Cheth - a 2x1 box with a central divider.
   cheth: {
     id: 'cheth',
     viewBox: 100,
     segments: [
-      { from: { x: 32, y: 40 }, to: { x: 68, y: 40 } },
-      { from: { x: 68, y: 40 }, to: { x: 68, y: 64 } },
-      { from: { x: 68, y: 64 }, to: { x: 32, y: 64 } },
-      { from: { x: 32, y: 64 }, to: { x: 32, y: 40 } },
-      { from: { x: 50, y: 40 }, to: { x: 50, y: 64 } },
+      { from: { x: 22, y: 30 }, to: { x: 78, y: 30 } },
+      { from: { x: 78, y: 30 }, to: { x: 78, y: 70 } },
+      { from: { x: 78, y: 70 }, to: { x: 22, y: 70 } },
+      { from: { x: 22, y: 70 }, to: { x: 22, y: 30 } },
+      { from: { x: 50, y: 30 }, to: { x: 50, y: 70 } },
     ],
   },
 
-  // Teth — crossed strokes with three base nodes (a crown).
+  // Teth - upside-down V connected to an X.
   teth: {
     id: 'teth',
     viewBox: 100,
     segments: [
-      { from: { x: 34, y: 40 }, to: { x: 62, y: 66 } },
-      { from: { x: 66, y: 40 }, to: { x: 38, y: 66 } },
-      { from: { x: 50, y: 40 }, to: { x: 50, y: 66 } },
+      { from: { x: 14, y: 76 }, to: { x: 28, y: 24 } },
+      { from: { x: 28, y: 24 }, to: { x: 50, y: 76 } },
+      { from: { x: 50, y: 76 }, to: { x: 76, y: 24 } },
+      { from: { x: 50, y: 24 }, to: { x: 86, y: 76 } },
     ],
     dots: [
-      { at: { x: 34, y: 40 } },
-      { at: { x: 66, y: 40 } },
-      { at: { x: 34, y: 68 } },
-      { at: { x: 50, y: 68 } },
-      { at: { x: 66, y: 68 } },
+      { at: { x: 28, y: 24 } },
+      { at: { x: 50, y: 24 } },
+      { at: { x: 76, y: 24 } },
+      { at: { x: 14, y: 76 } },
+      { at: { x: 50, y: 76 } },
+      { at: { x: 86, y: 76 } },
     ],
   },
 
-  // Yod — small hook with a single node.
+  // Yod - tall hook from an upper node to a lower-left node.
   yod: {
     id: 'yod',
     viewBox: 100,
-    paths: ['M54 38 Q44 50 56 64'],
-    dots: [{ at: { x: 54, y: 36 } }],
+    paths: ['M58 22 C72 46 76 76 30 78'],
+    dots: [{ at: { x: 58, y: 22 } }, { at: { x: 30, y: 78 } }],
   },
 
-  // Kaph — open cup with two top nodes.
+  // Kaph - curved bow open on the left, with upper and lower left nodes.
   kaph: {
     id: 'kaph',
     viewBox: 100,
-    paths: ['M36 36 L36 56 Q36 70 52 70 Q68 70 68 56 L68 36'],
-    dots: [{ at: { x: 36, y: 36 } }, { at: { x: 68, y: 36 } }],
+    paths: ['M28 28 C48 26 72 30 74 50 C76 72 50 76 28 74'],
+    dots: [{ at: { x: 28, y: 28 } }, { at: { x: 28, y: 74 } }],
   },
 
-  // Lamed — tall hook (candy-cane) with a top node.
+  // Lamed - cup rising to a tall right stem.
   lamed: {
     id: 'lamed',
     viewBox: 100,
-    paths: ['M54 34 L54 58 Q54 72 40 72'],
-    dots: [{ at: { x: 54, y: 32 } }],
+    paths: ['M30 42 L30 54 Q30 78 50 78 Q70 78 70 50 L70 22'],
+    dots: [{ at: { x: 30, y: 42 } }, { at: { x: 70, y: 22 } }],
   },
 
-  // Mem — H-form with four ringed ends.
+  // Mem - H-form with four ringed ends.
   mem: {
     id: 'mem',
     viewBox: 100,
     segments: [
-      { from: { x: 36, y: 32 }, to: { x: 36, y: 68 } },
-      { from: { x: 64, y: 32 }, to: { x: 64, y: 68 } },
-      { from: { x: 36, y: 50 }, to: { x: 64, y: 50 } },
+      { from: { x: 34, y: 24 }, to: { x: 34, y: 76 } },
+      { from: { x: 66, y: 24 }, to: { x: 66, y: 76 } },
+      { from: { x: 34, y: 43 }, to: { x: 66, y: 43 } },
     ],
     dots: [
-      { at: { x: 36, y: 32 } },
-      { at: { x: 64, y: 32 } },
-      { at: { x: 36, y: 68 } },
-      { at: { x: 64, y: 68 } },
+      { at: { x: 34, y: 24 } },
+      { at: { x: 66, y: 24 } },
+      { at: { x: 34, y: 76 } },
+      { at: { x: 66, y: 76 } },
     ],
   },
 
-  // Nun — flag (7) with two nodes.
+  // Nun - right stem with a left branch node.
   nun: {
     id: 'nun',
     viewBox: 100,
     segments: [
-      { from: { x: 36, y: 34 }, to: { x: 66, y: 34 } },
-      { from: { x: 62, y: 34 }, to: { x: 46, y: 68 } },
+      { from: { x: 68, y: 24 }, to: { x: 68, y: 76 } },
+      { from: { x: 30, y: 26 }, to: { x: 68, y: 48 } },
     ],
-    dots: [{ at: { x: 36, y: 34 } }, { at: { x: 46, y: 70 } }],
+    dots: [
+      { at: { x: 68, y: 24 } },
+      { at: { x: 68, y: 76 } },
+      { at: { x: 30, y: 26 } },
+    ],
   },
 
   // Samekh (primary) — six-rayed asterisk with ringed tips.
@@ -215,36 +235,42 @@ export const GLYPHS: Record<string, GlyphShape> = {
     ],
   },
 
-  // Samekh (variant) — fanned candelabrum with nodes atop each prong.
+  // Samekh (variant) — menorah: central shaft, four curved branches, foot node.
   'samekh-var': {
     id: 'samekh-var',
     viewBox: 100,
-    paths: ['M30 62 Q50 72 70 62'],
-    segments: [
-      { from: { x: 34, y: 62 }, to: { x: 32, y: 42 } },
-      { from: { x: 42, y: 64 }, to: { x: 41, y: 38 } },
-      { from: { x: 50, y: 66 }, to: { x: 50, y: 34 } },
-      { from: { x: 58, y: 64 }, to: { x: 59, y: 38 } },
-      { from: { x: 66, y: 62 }, to: { x: 68, y: 42 } },
+    paths: [
+      'M50 84 L50 18',
+      'M50 54 Q34 46 32 20',
+      'M50 54 Q66 46 68 20',
+      'M50 60 Q18 50 16 28',
+      'M50 60 Q82 50 84 28',
     ],
     dots: [
-      { at: { x: 32, y: 40 } },
-      { at: { x: 41, y: 36 } },
-      { at: { x: 50, y: 32 } },
-      { at: { x: 59, y: 36 } },
-      { at: { x: 68, y: 40 } },
+      { at: { x: 16, y: 28 } },
+      { at: { x: 32, y: 20 } },
+      { at: { x: 50, y: 16 } },
+      { at: { x: 68, y: 20 } },
+      { at: { x: 84, y: 28 } },
+      { at: { x: 50, y: 84 } },
     ],
   },
 
-  // Ayin — plain square.
+  // Ayin - square with four ringed corners.
   ayin: {
     id: 'ayin',
     viewBox: 100,
     segments: [
-      { from: { x: 34, y: 34 }, to: { x: 66, y: 34 } },
-      { from: { x: 66, y: 34 }, to: { x: 66, y: 66 } },
-      { from: { x: 66, y: 66 }, to: { x: 34, y: 66 } },
-      { from: { x: 34, y: 66 }, to: { x: 34, y: 34 } },
+      { from: { x: 28, y: 28 }, to: { x: 72, y: 28 } },
+      { from: { x: 72, y: 28 }, to: { x: 72, y: 72 } },
+      { from: { x: 72, y: 72 }, to: { x: 28, y: 72 } },
+      { from: { x: 28, y: 72 }, to: { x: 28, y: 28 } },
+    ],
+    dots: [
+      { at: { x: 28, y: 28 } },
+      { at: { x: 72, y: 28 } },
+      { at: { x: 28, y: 72 } },
+      { at: { x: 72, y: 72 } },
     ],
   },
 
@@ -278,57 +304,70 @@ export const GLYPHS: Record<string, GlyphShape> = {
     dots: [{ at: { x: 50, y: 28 } }, { at: { x: 50, y: 72 } }],
   },
 
-  // Qoph — deep cup with two top nodes.
+  // Qoph — bowl with three ringed prongs and a central shaft.
   qoph: {
     id: 'qoph',
     viewBox: 100,
-    paths: ['M38 34 L38 60 Q38 74 50 74 Q62 74 62 60 L62 34'],
-    dots: [{ at: { x: 38, y: 34 } }, { at: { x: 62, y: 34 } }],
+    paths: ['M28 44 Q28 70 50 70 Q72 70 72 44'],
+    segments: [
+      { from: { x: 28, y: 18 }, to: { x: 28, y: 44 } },
+      { from: { x: 50, y: 16 }, to: { x: 50, y: 70 } },
+      { from: { x: 72, y: 18 }, to: { x: 72, y: 44 } },
+    ],
+    dots: [
+      { at: { x: 28, y: 18 } },
+      { at: { x: 50, y: 16 } },
+      { at: { x: 72, y: 18 } },
+    ],
   },
 
-  // Resh — open V with a single node.
+  // Resh - open V with two upper nodes.
   resh: {
     id: 'resh',
     viewBox: 100,
     segments: [
-      { from: { x: 36, y: 36 }, to: { x: 50, y: 66 } },
-      { from: { x: 64, y: 36 }, to: { x: 50, y: 66 } },
+      { from: { x: 36, y: 28 }, to: { x: 50, y: 72 } },
+      { from: { x: 64, y: 28 }, to: { x: 50, y: 72 } },
     ],
-    dots: [{ at: { x: 64, y: 34 } }],
+    dots: [{ at: { x: 36, y: 28 } }, { at: { x: 64, y: 28 } }],
   },
 
-  // Shin — angle bracket with three nodes.
+  // Shin - angular four-node form.
   shin: {
     id: 'shin',
     viewBox: 100,
     segments: [
-      { from: { x: 40, y: 32 }, to: { x: 62, y: 50 } },
-      { from: { x: 62, y: 50 }, to: { x: 40, y: 68 } },
+      { from: { x: 24, y: 76 }, to: { x: 44, y: 24 } },
+      { from: { x: 44, y: 24 }, to: { x: 64, y: 76 } },
+      { from: { x: 56, y: 56 }, to: { x: 76, y: 24 } },
     ],
     dots: [
-      { at: { x: 40, y: 32 } },
-      { at: { x: 64, y: 50 } },
-      { at: { x: 40, y: 68 } },
+      { at: { x: 24, y: 76 } },
+      { at: { x: 44, y: 24 } },
+      { at: { x: 76, y: 24 } },
+      { at: { x: 64, y: 76 } },
     ],
   },
 
-  // Tav — comb / ladder: a crossbar over ringed verticals.
+  // Tav - comb / ladder with side nodes on the crossbar.
   tav: {
     id: 'tav',
     viewBox: 100,
     segments: [
-      { from: { x: 24, y: 50 }, to: { x: 76, y: 50 } },
-      { from: { x: 36, y: 40 }, to: { x: 36, y: 62 } },
-      { from: { x: 50, y: 40 }, to: { x: 50, y: 62 } },
-      { from: { x: 64, y: 40 }, to: { x: 64, y: 62 } },
+      { from: { x: 18, y: 50 }, to: { x: 82, y: 50 } },
+      { from: { x: 34, y: 24 }, to: { x: 34, y: 76 } },
+      { from: { x: 50, y: 24 }, to: { x: 50, y: 76 } },
+      { from: { x: 66, y: 24 }, to: { x: 66, y: 76 } },
     ],
     dots: [
-      { at: { x: 36, y: 38 } },
-      { at: { x: 50, y: 38 } },
-      { at: { x: 64, y: 38 } },
-      { at: { x: 36, y: 64 } },
-      { at: { x: 50, y: 64 } },
-      { at: { x: 64, y: 64 } },
+      { at: { x: 18, y: 50 } },
+      { at: { x: 82, y: 50 } },
+      { at: { x: 34, y: 24 } },
+      { at: { x: 50, y: 24 } },
+      { at: { x: 66, y: 24 } },
+      { at: { x: 34, y: 76 } },
+      { at: { x: 50, y: 76 } },
+      { at: { x: 66, y: 76 } },
     ],
   },
 };
