@@ -77,13 +77,13 @@ export const GLYPHS: Record<string, GlyphShape> = {
     ],
   },
 
-  // Heh — И-stroke: rising diagonal with nodes top-left, top-right, bottom-left.
+  // Heh - left post, falling diagonal, and right post; nodes TL, TR, BL.
   heh: {
     id: 'heh',
     viewBox: 100,
     segments: [
       { from: { x: 36, y: 26 }, to: { x: 36, y: 74 } },
-      { from: { x: 36, y: 74 }, to: { x: 64, y: 26 } },
+      { from: { x: 36, y: 26 }, to: { x: 64, y: 74 } },
       { from: { x: 64, y: 26 }, to: { x: 64, y: 74 } },
     ],
     dots: [
@@ -140,23 +140,23 @@ export const GLYPHS: Record<string, GlyphShape> = {
     ],
   },
 
-  // Teth — peak on the left, crossed strokes on the right; six ringed ends.
+  // Teth - upside-down V connected to an X.
   teth: {
     id: 'teth',
     viewBox: 100,
     segments: [
-      { from: { x: 12, y: 80 }, to: { x: 33, y: 16 } },
-      { from: { x: 33, y: 16 }, to: { x: 50, y: 84 } },
-      { from: { x: 50, y: 84 }, to: { x: 84, y: 34 } },
-      { from: { x: 60, y: 16 }, to: { x: 74, y: 82 } },
+      { from: { x: 14, y: 76 }, to: { x: 28, y: 24 } },
+      { from: { x: 28, y: 24 }, to: { x: 50, y: 76 } },
+      { from: { x: 50, y: 76 }, to: { x: 76, y: 24 } },
+      { from: { x: 50, y: 24 }, to: { x: 86, y: 76 } },
     ],
     dots: [
-      { at: { x: 12, y: 80 } },
-      { at: { x: 33, y: 16 } },
-      { at: { x: 50, y: 84 } },
-      { at: { x: 60, y: 16 } },
-      { at: { x: 84, y: 34 } },
-      { at: { x: 74, y: 82 } },
+      { at: { x: 28, y: 24 } },
+      { at: { x: 50, y: 24 } },
+      { at: { x: 76, y: 24 } },
+      { at: { x: 14, y: 76 } },
+      { at: { x: 50, y: 76 } },
+      { at: { x: 86, y: 76 } },
     ],
   },
 
@@ -207,12 +207,12 @@ export const GLYPHS: Record<string, GlyphShape> = {
     viewBox: 100,
     segments: [
       { from: { x: 68, y: 24 }, to: { x: 68, y: 76 } },
-      { from: { x: 30, y: 38 }, to: { x: 68, y: 50 } },
+      { from: { x: 30, y: 26 }, to: { x: 68, y: 48 } },
     ],
     dots: [
       { at: { x: 68, y: 24 } },
       { at: { x: 68, y: 76 } },
-      { at: { x: 30, y: 38 } },
+      { at: { x: 30, y: 26 } },
     ],
   },
 

@@ -14,7 +14,9 @@
       "Bash(npx prettier *)",
       "WebFetch(domain:commons.wikimedia.org)",
       "Bash(python3 -c ' *)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(rm -f glyphs.html src/_glyph-sheet.tsx)",
+      "Bash(rm -f .tmp-refs/*.png .tmp-refs/*.json)"
     ]
   }
 }
