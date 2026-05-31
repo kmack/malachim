@@ -1,0 +1,51 @@
+.session-complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 24px;
+}
+
+.session-complete__icon {
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--grade-good);
+  margin: 0;
+}
+
+.session-complete__title {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.session-complete__text {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 320px;
+}
+
+.session-complete__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 280px;
+  margin-top: 8px;
+}
+
+.session-complete__btn {
+  min-height: 48px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.session-complete__btn--ghost {
+  background: transparent;
+  color: var(--text);
+}

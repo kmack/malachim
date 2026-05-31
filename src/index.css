@@ -1,0 +1,81 @@
+/* Theme tokens. Dark is the default; [data-theme='light'] overrides for the
+   parchment look. Glyphs use currentColor, so they invert automatically. */
+:root,
+[data-theme='dark'] {
+  --bg: #1a1a2e;
+  --bg-elev: #16213e;
+  --text: #e6e6ea;
+  --text-muted: #9aa0b5;
+  --card-bg: #20203a;
+  --card-border: rgba(255, 255, 255, 0.1);
+  --btn-bg: #262647;
+  --accent: #6ab7ff;
+  --grade-again: #ff6b6b;
+  --grade-hard: #ffa94d;
+  --grade-good: #69db7c;
+  --grade-easy: #4dabf7;
+  --flip-duration: 500ms;
+}
+
+[data-theme='light'] {
+  --bg: #f4ecd8;
+  --bg-elev: #efe6cf;
+  --text: #1a1712;
+  --text-muted: #6b5e44;
+  --card-bg: #fbf6e9;
+  --card-border: rgba(60, 45, 20, 0.2);
+  --btn-bg: #eaddc2;
+  --accent: #9a5b22;
+  --grade-again: #c92a2a;
+  --grade-hard: #b5651d;
+  --grade-good: #2b8a3e;
+  --grade-easy: #1864ab;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+}

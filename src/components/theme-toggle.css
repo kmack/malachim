@@ -1,0 +1,19 @@
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  background: var(--btn-bg);
+  color: var(--text);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.theme-toggle:active {
+  transform: translateY(1px);
+}

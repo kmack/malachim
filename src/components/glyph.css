@@ -1,0 +1,10 @@
+.glyph {
+  display: block;
+  color: inherit;
+}
+
+/* Open circles read as "open" by filling them with the card background so the
+   strokes passing beneath don't show through. */
+.glyph__dot {
+  fill: var(--card-bg);
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Malachim">
+  <rect width="512" height="512" fill="#1a1a2e" />
+  <g transform="translate(256 256) scale(3.1) translate(-50 -50)">
+    <g fill="none" stroke="#e6e6ea" stroke-width="4" stroke-linecap="round">
+      <line x1="50" y1="24" x2="50" y2="76" />
+      <line x1="28" y1="37" x2="72" y2="63" />
+      <line x1="72" y1="37" x2="28" y2="63" />
+    </g>
+    <g fill="#1a1a2e" stroke="#e6e6ea" stroke-width="4">
+      <circle cx="50" cy="24" r="4.5" />
+      <circle cx="50" cy="76" r="4.5" />
+      <circle cx="28" cy="37" r="4.5" />
+      <circle cx="72" cy="63" r="4.5" />
+      <circle cx="72" cy="37" r="4.5" />
+      <circle cx="28" cy="63" r="4.5" />
+    </g>
+  </g>
+</svg>

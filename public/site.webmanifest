@@ -1,0 +1,25 @@
+{
+  "id": "/",
+  "name": "Malachim — Alphabet of the Angels",
+  "short_name": "Malachim",
+  "description": "Flash cards for learning the Malachim alphabet — the 22 Hebrew letters and their celestial-script glyphs.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#1a1a2e",
+  "background_color": "#1a1a2e",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

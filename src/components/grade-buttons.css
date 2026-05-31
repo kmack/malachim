@@ -1,0 +1,79 @@
+.grade-buttons {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  max-width: 340px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.grade-buttons[data-visible='true'] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.grade-buttons__btn {
+  flex: 1;
+  min-height: 52px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: var(--btn-bg);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 6px 4px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.grade-buttons__btn:active {
+  transform: translateY(1px);
+}
+
+.grade-buttons__key {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.grade-buttons__btn--again {
+  border-color: var(--grade-again);
+}
+.grade-buttons__btn--hard {
+  border-color: var(--grade-hard);
+}
+.grade-buttons__btn--good {
+  border-color: var(--grade-good);
+}
+.grade-buttons__btn--easy {
+  border-color: var(--grade-easy);
+}
+
+.grade-buttons__btn--again .grade-buttons__label {
+  color: var(--grade-again);
+}
+.grade-buttons__btn--hard .grade-buttons__label {
+  color: var(--grade-hard);
+}
+.grade-buttons__btn--good .grade-buttons__label {
+  color: var(--grade-good);
+}
+.grade-buttons__btn--easy .grade-buttons__label {
+  color: var(--grade-easy);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grade-buttons {
+    transition: none;
+  }
+}

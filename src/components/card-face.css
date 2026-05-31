@@ -1,0 +1,40 @@
+.card-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: var(--text);
+}
+
+.card-face__glyphs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.card-face__glyphs .glyph {
+  width: clamp(104px, 36vw, 168px);
+  height: auto;
+}
+
+.card-face__note {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+.card-face__hebrew {
+  font-size: clamp(5rem, 22vw, 8rem);
+  line-height: 1;
+}
+
+.card-face__name {
+  font-size: clamp(1.5rem, 7vw, 2.25rem);
+  letter-spacing: 0.04em;
+}
