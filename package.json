@@ -16,7 +16,7 @@
   },
   "homepage": "https://malachim.vercel.app",
   "engines": {
-    "node": ">=20 <23"
+    "node": ">=20"
   },
   "scripts": {
     "dev": "vite",
