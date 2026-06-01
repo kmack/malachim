@@ -10,10 +10,6 @@
   --card-border: rgba(255, 255, 255, 0.1);
   --btn-bg: #262647;
   --accent: #6ab7ff;
-  --grade-again: #ff6b6b;
-  --grade-hard: #ffa94d;
-  --grade-good: #69db7c;
-  --grade-easy: #4dabf7;
   --flip-duration: 500ms;
 }
 
@@ -26,10 +22,6 @@
   --card-border: rgba(60, 45, 20, 0.2);
   --btn-bg: #eaddc2;
   --accent: #9a5b22;
-  --grade-again: #c92a2a;
-  --grade-hard: #b5651d;
-  --grade-good: #2b8a3e;
-  --grade-easy: #1864ab;
 }
 
 * {

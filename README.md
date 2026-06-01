@@ -1,15 +1,14 @@
 # Malachim — Alphabet of the Angels
 
-A mobile-first flash-card web app for learning the **Malachim** alphabet (the celestial "writing of the angels"): the 22 Hebrew letters paired with their Malachim glyphs, with spaced-repetition study.
+A mobile-first flash-card web app for learning the **Malachim** alphabet (the celestial "writing of the angels"): the 22 Hebrew letters paired with their Malachim glyphs.
 
 The glyphs are drawn as inline SVG (lines + open circles), so they stay crisp at any size and adapt to the theme.
 
 ## Features
 
 - **Flip cards** — tap, click, or press <kbd>Space</kbd>/<kbd>Enter</kbd> to reveal the answer.
-- **Spaced repetition** — a Leitner 5-box scheduler with Again / Hard / Good / Easy self-grading. Weaker letters return sooner; progress is saved in the browser (`localStorage`).
+- **Two modes, clearly labelled** — **Reference** keeps the 22 letters in canonical Aleph → Tav order for lookup; **Flash cards** shuffles them for recall practice. A toggle below the card shows which is active and switches between them.
 - **Two study directions** — glyph → name or name → glyph, toggled at any time.
-- **Cram mode** — review all 22 letters with no effect on the schedule.
 - **Light / dark theme** — a parchment light theme and a dark theme; the choice persists and glyphs invert automatically.
 - **Keyboard + touch** — swipe left/right to navigate, with full keyboard parity.
 - **Offline-friendly assets, installable** — a web manifest with SVG icons (add-to-home-screen). Not a full offline PWA — there is no service worker.
@@ -20,8 +19,7 @@ The glyphs are drawn as inline SVG (lines + open circles), so they stay crisp at
 | ----------------------------------- | ---------------------------------------------- |
 | <kbd>Space</kbd> / <kbd>Enter</kbd> | Flip the card                                  |
 | <kbd>←</kbd> / <kbd>→</kbd>         | Previous / next card                           |
-| <kbd>1</kbd>–<kbd>4</kbd>           | Grade (after flip): Again / Hard / Good / Easy |
-| <kbd>S</kbd>                        | Shuffle the remaining cards                    |
+| <kbd>S</kbd>                        | Shuffle into flash-card mode (re-shuffle if already there) |
 | <kbd>T</kbd>                        | Toggle study direction                         |
 
 ## Tech stack
@@ -30,7 +28,7 @@ Vite 8 · React 19 (with the React Compiler) · TypeScript 6 · ESLint 9 (flat c
 
 ## Getting started
 
-Requires Node `>=20 <23`.
+Requires Node `>=20 <25`.
 
 ```bash
 npm install
@@ -56,20 +54,20 @@ src/
   main.tsx               App entry; mounts <App>
   app.tsx                Root component
   index.css              Global reset + light/dark theme tokens
-  config/app-config.ts   Leitner intervals, swipe threshold, storage keys
-  types/                 LetterCard, GlyphShape, SRS types
+  config/app-config.ts   Deck size, swipe threshold, storage keys
+  types/                 LetterCard, DeckMode, GlyphShape
   data/
     letters.ts           The 22 letters (id, name, Hebrew char, glyph id)
     glyphs.ts            Hand-traced glyph geometry, keyed by glyph id
   hooks/
-    use-srs-deck.ts      Deck/session state: queue, grading, persistence
+    use-deck.ts          Deck state: queue, mode (reference/flashcards), persistence
     use-theme.ts         Light/dark theme state
     use-swipe.ts         Pointer-based swipe detection
     use-local-storage.ts / use-media-query.ts
-  components/            FlashCard, CardFace, Glyph, GradeButtons, NavControls,
+  components/            FlashCard, CardFace, Glyph, ModeToggle, NavControls,
                          ProgressBar, ThemeToggle, TopBar, AboutModal,
-                         SessionComplete, StudyScreen (one .css file each)
-  utils/                 srs-scheduler (pure Leitner logic), shuffle, storage, cn
+                         StudyScreen (one .css file each)
+  utils/                 shuffle, storage, cn
 ```
 
 ### How the glyphs work
@@ -90,19 +88,14 @@ A single [`<Glyph>`](src/components/glyph.tsx) component renders them as inline 
 
 > **Note on accuracy:** the glyph coordinates in [`src/data/glyphs.ts`](src/data/glyphs.ts) are a careful **first-pass tracing** from a source manuscript, not an authoritative reproduction. They are easy to adjust — edit the segment/path/dot coordinates and check the result in the browser.
 
-### Spaced repetition
+### Study modes
 
-Scheduling lives in [`src/utils/srs-scheduler.ts`](src/utils/srs-scheduler.ts) as pure functions (a `now` timestamp is always passed in, so they're deterministic). Each card has a Leitner box (1–5); a grade moves it between boxes, and the next due time comes from the per-box intervals in [`app-config.ts`](src/config/app-config.ts):
+The deck lives in [`src/hooks/use-deck.ts`](src/hooks/use-deck.ts) and runs in one of two modes:
 
-| Box | Next due                       |
-| --- | ------------------------------ |
-| 1   | ~10 min (relearn this session) |
-| 2   | 1 day                          |
-| 3   | 3 days                         |
-| 4   | 7 days                         |
-| 5   | 16 days                        |
+- **Reference** — the 22 cards in canonical Aleph → Tav order (`order` field), for looking letters up.
+- **Flash cards** — the cards shuffled (a fresh [`shuffle`](src/utils/shuffle.ts) on entry and on re-shuffle), for testing recall.
 
-State persists under `localStorage` key `malachim.srs.v1`; the theme under `malachim.theme.v1`. Use **Reset progress** in the header to clear scheduling.
+Both modes hold all 22 cards and cycle forever (next/prev wrap around). The active mode and the study direction persist under `localStorage` key `malachim.prefs.v1`; the theme under `malachim.theme.v1`.
 
 ## Theming
 

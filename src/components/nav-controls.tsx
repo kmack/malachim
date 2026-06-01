@@ -14,6 +14,8 @@ export interface NavControlsProps {
   onShuffle: () => void;
   onToggleDirection: () => void;
   direction: StudyDirection;
+  /** Show the reshuffle button (flashcards mode only — reference order is fixed). */
+  showShuffle: boolean;
 }
 
 export function NavControls(props: NavControlsProps): JSX.Element {
@@ -30,14 +32,16 @@ export function NavControls(props: NavControlsProps): JSX.Element {
       >
         ‹
       </button>
-      <button
-        type="button"
-        className="nav-controls__btn"
-        onClick={props.onShuffle}
-        aria-label="Shuffle deck"
-      >
-        ⤮
-      </button>
+      {props.showShuffle && (
+        <button
+          type="button"
+          className="nav-controls__btn"
+          onClick={props.onShuffle}
+          aria-label="Reshuffle deck"
+        >
+          ⤮
+        </button>
+      )}
       <button
         type="button"
         className="nav-controls__btn nav-controls__btn--direction"

@@ -5,8 +5,14 @@
 export type StudyDirection = 'glyph-to-name' | 'name-to-glyph';
 export type CardFace = 'prompt' | 'answer';
 
+/**
+ * How the deck is ordered. `reference` keeps the 22 letters in canonical
+ * Aleph→Tav order; `flashcards` shuffles them for recall practice.
+ */
+export type DeckMode = 'reference' | 'flashcards';
+
 export interface LetterCard {
-  /** Stable id, also used as the spaced-repetition key. */
+  /** Stable id for the letter. */
   id: string;
   /** Canonical sequence 1..22 (Aleph..Tav). */
   order: number;
