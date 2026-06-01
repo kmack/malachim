@@ -1,7 +1,7 @@
 /**
  * @fileoverview The main study shell. Owns the deck and theme hooks, wires up
- * keyboard + swipe input, and renders either the active card or the
- * session-complete state.
+ * keyboard + swipe input, and renders the active card with its mode toggle and
+ * navigation.
  */
 
 import './study-screen.css';
@@ -10,18 +10,17 @@ import type { JSX } from 'react';
 import { useEffect, useRef } from 'react';
 
 import { LETTERS } from '../data/letters';
-import { useSrsDeck } from '../hooks/use-srs-deck';
+import { useDeck } from '../hooks/use-deck';
 import { useSwipe } from '../hooks/use-swipe';
 import { useTheme } from '../hooks/use-theme';
 import { FlashCard } from './flash-card';
-import { GradeButtons } from './grade-buttons';
+import { ModeToggle } from './mode-toggle';
 import { NavControls } from './nav-controls';
 import { ProgressBar } from './progress-bar';
-import { SessionComplete } from './session-complete';
 import { TopBar } from './top-bar';
 
 export function StudyScreen(): JSX.Element {
-  const deck = useSrsDeck(LETTERS);
+  const deck = useDeck(LETTERS);
   const { theme, toggle } = useTheme();
 
   // Keep a ref to the latest deck so the one-time key/swipe listeners stay
@@ -36,10 +35,6 @@ export function StudyScreen(): JSX.Element {
       // Let the modal own the keyboard while it's open.
       if (document.querySelector('.about-modal')) return;
       const d = deckRef.current;
-
-      const gradeIfReady = (g: 'again' | 'hard' | 'good' | 'easy'): void => {
-        if (d.isFlipped && d.mode === 'review' && d.current) d.grade(g);
-      };
 
       switch (e.key) {
         case ' ':
@@ -59,23 +54,13 @@ export function StudyScreen(): JSX.Element {
           break;
         case 's':
         case 'S':
-          d.shuffleDeck();
+          // Shuffle: enter flashcards mode, or re-randomize if already there.
+          if (d.mode === 'flashcards') d.reshuffle();
+          else d.setMode('flashcards');
           break;
         case 't':
         case 'T':
           d.toggleDirection();
-          break;
-        case '1':
-          gradeIfReady('again');
-          break;
-        case '2':
-          gradeIfReady('hard');
-          break;
-        case '3':
-          gradeIfReady('good');
-          break;
-        case '4':
-          gradeIfReady('easy');
           break;
         default:
           break;
@@ -93,20 +78,14 @@ export function StudyScreen(): JSX.Element {
     },
   });
 
-  const showGrades = deck.isFlipped && deck.mode === 'review' && !!deck.current;
-
   return (
     <div className="study-screen">
-      <TopBar theme={theme} onToggleTheme={toggle} onReset={deck.reset} />
+      <TopBar theme={theme} onToggleTheme={toggle} />
 
       <main className="study-screen__main">
         {deck.current ? (
           <>
-            <ProgressBar
-              position={deck.position}
-              total={deck.total}
-              reviewed={deck.reviewedCount}
-            />
+            <ProgressBar position={deck.position} total={deck.total} />
 
             <div
               className="study-screen__card-area"
@@ -121,36 +100,19 @@ export function StudyScreen(): JSX.Element {
               />
             </div>
 
-            {deck.mode === 'review' ? (
-              <GradeButtons onGrade={deck.grade} visible={showGrades} />
-            ) : (
-              <div className="study-screen__cram-bar">
-                <span>Cram mode · {deck.total} cards</span>
-                <button
-                  type="button"
-                  className="study-screen__exit-cram"
-                  onClick={deck.exitCram}
-                >
-                  Exit cram
-                </button>
-              </div>
-            )}
+            <ModeToggle mode={deck.mode} onSelect={deck.setMode} />
 
             <NavControls
               onPrev={deck.prev}
               onNext={deck.next}
-              onShuffle={deck.shuffleDeck}
+              onShuffle={deck.reshuffle}
               onToggleDirection={deck.toggleDirection}
               direction={deck.direction}
+              showShuffle={deck.mode === 'flashcards'}
             />
           </>
         ) : (
-          <SessionComplete
-            reviewedCount={deck.reviewedCount}
-            nextDue={deck.nextDue}
-            onCram={deck.startCram}
-            onReset={deck.reset}
-          />
+          <p className="study-screen__empty">No cards to study.</p>
         )}
       </main>
 
@@ -159,7 +121,7 @@ export function StudyScreen(): JSX.Element {
           ? `Card ${deck.position} of ${deck.total}. ${
               deck.isFlipped ? 'Answer shown.' : 'Prompt shown.'
             }`
-          : 'Session complete.'}
+          : 'No cards to study.'}
       </div>
     </div>
   );

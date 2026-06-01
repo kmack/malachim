@@ -86,10 +86,13 @@ export function AboutModal({
         <h3 className="about-modal__subtitle">How to study</h3>
         <ul className="about-modal__list">
           <li>Tap the card (or press Space / Enter) to flip it.</li>
-          <li>After flipping, grade yourself: Again, Hard, Good, or Easy.</li>
           <li>
-            Grades schedule each letter with a Leitner spaced-repetition system,
-            so weaker letters come back sooner.
+            <strong>Reference</strong> shows the 22 letters in order (Aleph →
+            Tav) — good for looking them up.
+          </li>
+          <li>
+            <strong>Flash cards</strong> shuffles the deck so you can test your
+            recall. Use the toggle below the card to switch modes.
           </li>
           <li>Swipe left / right or use ‹ › to move between cards.</li>
           <li>Switch the prompt direction (glyph ⇄ name) at any time.</li>
@@ -104,10 +107,8 @@ export function AboutModal({
             <kbd>←</kbd> <kbd>→</kbd> — previous / next
           </li>
           <li>
-            <kbd>1</kbd>–<kbd>4</kbd> — grade (after flip)
-          </li>
-          <li>
-            <kbd>S</kbd> — shuffle · <kbd>T</kbd> — toggle direction
+            <kbd>S</kbd> — shuffle (flash-card mode) · <kbd>T</kbd> — toggle
+            direction
           </li>
         </ul>
 

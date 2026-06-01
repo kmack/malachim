@@ -35,7 +35,14 @@ export function FlashCard({
           : 'Prompt shown. Activate to reveal the answer.'
       }
     >
-      <span className="flash-card__inner">
+      {/*
+        Keyed by card + direction so changing card (navigation) or direction
+        remounts the inner and resets the flip *instantly*. Without the key,
+        React reuses this node and animates the 180°→0° un-flip, briefly
+        revealing the next card's answer face mid-rotation. Flipping the same
+        card keeps the key stable, so that flip animation is preserved.
+      */}
+      <span className="flash-card__inner" key={`${card.id}:${direction}`}>
         <span className="flash-card__face flash-card__face--front">
           <CardFace card={card} direction={direction} face="prompt" />
         </span>

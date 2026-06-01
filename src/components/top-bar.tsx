@@ -14,25 +14,10 @@ import { ThemeToggle } from './theme-toggle';
 export interface TopBarProps {
   theme: Theme;
   onToggleTheme: () => void;
-  onReset: () => void;
 }
 
-export function TopBar({
-  theme,
-  onToggleTheme,
-  onReset,
-}: TopBarProps): JSX.Element {
+export function TopBar({ theme, onToggleTheme }: TopBarProps): JSX.Element {
   const [aboutOpen, setAboutOpen] = useState(false);
-
-  const handleReset = (): void => {
-    if (
-      window.confirm(
-        'Reset all study progress? Every card returns to the start.'
-      )
-    ) {
-      onReset();
-    }
-  };
 
   return (
     <header className="top-bar">
@@ -45,15 +30,6 @@ export function TopBar({
           aria-label="About and help"
         >
           ?
-        </button>
-        <button
-          type="button"
-          className="top-bar__btn"
-          onClick={handleReset}
-          aria-label="Reset progress"
-          title="Reset progress"
-        >
-          ⟳
         </button>
         <ThemeToggle theme={theme} onToggle={onToggleTheme} />
       </div>
