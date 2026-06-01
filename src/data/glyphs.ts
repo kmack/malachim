@@ -54,10 +54,10 @@ export const GLYPHS: Record<string, GlyphShape> = {
     id: 'gimel',
     viewBox: 100,
     paths: [
-      'M40 22 C38 44 42 64 50 76 C42 80 24 82 12 78',
-      'M68 22 C64 46 58 64 50 76',
+      'M38 22 C38 42 44 58 52 70 C44 78 28 84 12 86',
+      'M68 22 C64 42 60 56 52 70',
     ],
-    dots: [{ at: { x: 40, y: 22 } }, { at: { x: 68, y: 22 } }],
+    dots: [{ at: { x: 38, y: 22 } }, { at: { x: 68, y: 22 } }],
   },
 
   // Daleth - top rail, left leg, and central leg.
